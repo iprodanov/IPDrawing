@@ -25,7 +25,8 @@ namespace Draw
         private bool IsPointInsideEllipse(PointF point)
         {
             PointF center = this.GetCenter();
-
+            
+            //Ellipse formula elements
             float x = Math.Abs(center.X - point.X);
             float y = Math.Abs(center.Y - point.Y);
             float a = (this.Width + LineWidth) / 2;
@@ -39,7 +40,7 @@ namespace Draw
 
         public override bool Contains(PointF point)
         {
-            point = TransformMatrix.InverseTransformPoint(point);
+            TransformMatrix.InverseTransformPoint(ref point);
             if (base.Contains(point))
             {
                 return this.IsPointInsideEllipse(point);

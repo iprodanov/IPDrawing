@@ -72,11 +72,11 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\GUI\Program.cs" />
-    <Compile Include="Source\GUI\ShapePropertiesForm.cs">
+    <Compile Include="Source\GUI\EditShapePropertiesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\GUI\ShapePropertiesForm.designer.cs">
-      <DependentUpon>ShapePropertiesForm.cs</DependentUpon>
+    <Compile Include="Source\GUI\EditShapePropertiesForm.designer.cs">
+      <DependentUpon>EditShapePropertiesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Model\EllipeseShape.cs" />
     <Compile Include="Source\Model\GroupShape.cs" />
@@ -106,8 +106,8 @@
     <EmbeddedResource Include="Source\GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\GUI\ShapePropertiesForm.resx">
-      <DependentUpon>ShapePropertiesForm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\GUI\EditShapePropertiesForm.resx">
+      <DependentUpon>EditShapePropertiesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,6 +1,6 @@
 ﻿namespace Draw
 {
-    partial class ShapePropertiesForm
+    partial class EditShapePropertiesForm
     {
         /// <summary>
         /// Required designer variable.

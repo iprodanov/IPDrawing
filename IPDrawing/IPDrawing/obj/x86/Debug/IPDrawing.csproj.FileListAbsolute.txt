@@ -11,3 +11,16 @@ C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\GenerateResource.read.1
 C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\IPDrawing.exe
 C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\IPDrawing.pdb
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\obj\x86\Debug\IPDrawing.exe
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\obj\x86\Debug\IPDrawing.pdb
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\obj\x86\Debug\IPDrawing.Properties.Resources.resources
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\obj\x86\Debug\Draw.AboutForm.resources
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\obj\x86\Debug\Draw.DoubleBufferedPanel.resources
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\obj\x86\Debug\Draw.FineRotationForm.resources
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\obj\x86\Debug\Draw.MainForm.resources
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\bin\Debug\IPDrawing.exe
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\bin\Debug\IPDrawing.pdb
+D:\GitHub\IPDrawing\IPDrawing\IPDrawing\obj\x86\Debug\Draw.EditShapePropertiesForm.resources

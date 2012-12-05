@@ -8,6 +8,12 @@ namespace Draw
     [Serializable]
     public class GroupShape : Shape
     {
+        #region Members
+
+        private List<Shape> shapes = new List<Shape>();
+
+        #endregion
+
         #region Constructors
 
         public GroupShape(RectangleF rect)
@@ -24,10 +30,7 @@ namespace Draw
         
         public override Color FillColor
         {
-            get
-            {
-                return base.FillColor;
-            }
+            get { return base.FillColor; }
             set
             {
                 base.FillColor = value;
@@ -40,10 +43,7 @@ namespace Draw
 
         public override Color LineColor
         {
-            get
-            {
-                return base.LineColor;
-            }
+            get { return base.LineColor; }
             set
             {
                 base.LineColor = value;
@@ -56,10 +56,7 @@ namespace Draw
 
         public override int LineWidth
         {
-            get
-            {
-                return base.LineWidth;
-            }
+            get { return base.LineWidth; }
             set
             {
                 base.LineWidth = value;
@@ -72,10 +69,7 @@ namespace Draw
 
         public override int Transparency
         {
-            get
-            {
-                return base.Transparency;
-            }
+            get { return base.Transparency; }
             set
             {
                 base.Transparency = value;
@@ -85,19 +79,11 @@ namespace Draw
                 }
             }
         }
-
-        private List<Shape> shapes = new List<Shape>();
+        
         public List<Shape> Shapes
         {
-            get
-            {
-                return shapes;
-            }
-
-            set
-            {
-                shapes = value;
-            }
+            get { return shapes; }
+            set { shapes = value; }
         }
 
         #endregion
@@ -106,21 +92,22 @@ namespace Draw
 
         public override PointF[] GetCoveringRectanglePoints()
         {
-            List<PointF> listOfPoints = new List<PointF>();
+            List<PointF> allPoints = new List<PointF>();
+            
             foreach (var shape in Shapes)
             {
-                PointF[] subPoints = shape.GetCoveringRectanglePoints();
-                listOfPoints.AddRange(subPoints);
+                PointF[] subShapePoints = shape.GetCoveringRectanglePoints();
+                allPoints.AddRange(subShapePoints);
             }
 
-            PointF[] points = listOfPoints.ToArray();
+            PointF[] points = allPoints.ToArray();
             this.TransformMatrix.TransformPoints(points);
             return points;
         }
 
         public override bool Contains(PointF point)
         {
-            point = TransformMatrix.InverseTransformPoint(point);
+            TransformMatrix.InverseTransformPoint(ref point);
             if (base.Contains(point))
             {
                 foreach (var shape in Shapes)
@@ -130,12 +117,8 @@ namespace Draw
                         return true;
                     }
                 }
-                return false;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         public override void DrawSelf(Graphics grfx)
@@ -150,6 +133,5 @@ namespace Draw
         }
 
         #endregion
-
     }
 }

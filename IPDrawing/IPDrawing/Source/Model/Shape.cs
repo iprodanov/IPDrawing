@@ -6,10 +6,22 @@ namespace Draw
 {
     [Serializable]
 	public abstract class Shape
-	{
-		#region Constructors
-		
-		public Shape()
+    {
+        #region Members
+
+        private int id;
+        private RectangleF rectangle;
+        private Color fillColor;
+        private Color lineColor;
+        private int lineWidth;
+        private int transparency;
+        private ShapeMatrix transformMatrix;
+
+        #endregion
+
+        #region Constructors
+
+        public Shape()
 		{
 		}
 		
@@ -39,43 +51,23 @@ namespace Draw
         #endregion
 		
 		#region Properties
-
-        private int id;
+        
         public int ID
         {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-            }
+            get { return id; }
+            set { id = value; }
         }
 		
-		private RectangleF rectangle;		
 		public virtual RectangleF Rectangle
         {
-			get
-            {
-                return rectangle;
-            }
-			
-            set
-            {
-                rectangle = value;
-            }
+			get { return rectangle; }
+			set { rectangle = value; }
 		}
 		
 		public virtual float Width
         {
-			get
-            {
-                return Rectangle.Width;
-            }
-			
-            set
+			get { return Rectangle.Width; }
+			set 
             {
                 if (value > 0)
                 {
@@ -86,12 +78,8 @@ namespace Draw
 		
 		public virtual float Height
         {
-			get
-            {
-                return Rectangle.Height;
-            }
-			
-            set
+			get { return Rectangle.Height; }
+			set
             {
                 if (value > 0)
                 {
@@ -102,54 +90,26 @@ namespace Draw
 		
 		public virtual PointF Location
         {
-			get
-            {
-                return Rectangle.Location;
-            }
-			
-            set
-            {
-                rectangle.Location = value;
-            }
+			get { return Rectangle.Location; }
+			set { rectangle.Location = value; }
 		}
 		
-		private Color fillColor;		
 		public virtual Color FillColor
         {
-			get
-            {
-                return fillColor;
-            }
-			
-            set
-            {
-                fillColor = value;
-            }
+			get { return fillColor; }
+			set { fillColor = value; }
 		}
 
-        private Color lineColor;
         public virtual Color LineColor
         {
-            get
-            {
-                return lineColor;
-            }
-
-            set
-            {
-                lineColor = value;
-            }
+            get { return lineColor; }
+            set { lineColor = value; }
         }
 
-        private int lineWidth;
         public virtual int LineWidth
         {
-            get
-            {
-                return lineWidth;
-            }
-
-            set
+            get { return lineWidth; }
+            set 
             {
                 if (value > 0)
                 {
@@ -158,14 +118,9 @@ namespace Draw
             }
         }
 
-        private int transparency;
         public virtual int Transparency
         {
-            get
-            {
-                return transparency;
-            }
-
+            get { return transparency; }
             set
             {
                 if (value >= 0 && value <= 255)
@@ -175,18 +130,10 @@ namespace Draw
             }
         }
 
-        private ShapeMatrix transformMatrix;
         public virtual ShapeMatrix TransformMatrix
         {
-            get
-            {
-                return transformMatrix;
-            }
-
-            set
-            {
-                transformMatrix = value;
-            }
+            get { return transformMatrix; }
+            set { transformMatrix = value; }
         }
 
 		#endregion
@@ -198,10 +145,7 @@ namespace Draw
             float ofsetX = this.Width / 2;
             float ofsetY = this.Height / 2;
             PointF center = new PointF(this.Location.X + ofsetX, this.Location.Y + ofsetY);
-            //PointF[] transformedPoints = new PointF[] { center };
-            //this.transformMatrix.TransformPoints(transformedPoints);
-
-            //return transformedPoints[0];
+            
             return center;
         }
 
@@ -234,6 +178,5 @@ namespace Draw
 		public abstract void DrawSelf(Graphics grfx);
 
         #endregion
-
     }
 }

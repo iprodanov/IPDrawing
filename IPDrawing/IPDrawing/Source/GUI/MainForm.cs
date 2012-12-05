@@ -9,43 +9,29 @@ using System.ComponentModel;
 namespace Draw
 {
 	public partial class MainForm : Form
-	{
-		private DialogProcessor dialogProcessor = new DialogProcessor();
-        
-		public MainForm()
+    {
+        #region Members
+
+        private DialogProcessor dialogProcessor;
+
+        #endregion
+
+        #region Constructors
+
+        public MainForm()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-            //
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+            dialogProcessor = new DialogProcessor();
 		}
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (dialogProcessor.IsChanged)
-            {
-                DialogResult result = MessageBox.Show("Do you want to save the changes?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-                if (result == DialogResult.Yes)
-                {
-                    Save();
-                    if (dialogProcessor.IsChanged)
-                    {
-                        e.Cancel = true;
-                    }
-                }
-                else if (result == DialogResult.Cancel)
-                {
-                    e.Cancel = true;
-                }
-            }
-        }
+        #endregion
 
         #region ViewPort Workspace Events
 
-        void ViewPort_Paint(object sender, PaintEventArgs e)
+        private void ViewPort_Paint(object sender, PaintEventArgs e)
         {
             dialogProcessor.ReDraw(sender, e);
         }
@@ -71,7 +57,7 @@ namespace Draw
         private void ViewPort_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Shape shape = dialogProcessor.ContainsPoint(e.Location);
-            ShowShapePropertiesForm(shape);
+            EditShapeProperties(shape);
         }
 
 		private void ViewPort_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -110,7 +96,7 @@ namespace Draw
                 int count = dialogProcessor.Selection.Count;
                 if (count > 0)
                 {
-                    ShowShapePropertiesForm(dialogProcessor.Selection[count - 1]);
+                    EditShapeProperties(dialogProcessor.Selection[count - 1]);
                 }
             }
             else if (e.KeyCode == Keys.Delete)
@@ -158,7 +144,7 @@ namespace Draw
 
         #endregion
 
-        #region Tools  & Properties
+        #region Tools & Properties
 
         private void rotateRight_Click(object sender, EventArgs e)
         {
@@ -406,9 +392,10 @@ namespace Draw
             if (dialogProcessor.Selection.Count > 0)
             {
                 Shape shape = dialogProcessor.Selection[0];
-                PointF location = shape.TransformMatrix.TransformPoint(shape.Location);
-                tbX.Text = location.X.ToString();
-                tbY.Text = location.Y.ToString();
+                PointF location = shape.Location;
+                shape.TransformMatrix.TransformPoint(ref location);
+                tbX.Text = ((int)location.X).ToString();
+                tbY.Text = ((int)location.Y).ToString();
             }
         }
 
@@ -499,13 +486,15 @@ namespace Draw
             viewPort.Invalidate();
         }
 
-        private void ShowShapePropertiesForm(Shape shape)
+        private void EditShapeProperties(Shape shape)
         {
             if (shape != null)
             {
-                ShapePropertiesForm frmProperties = new ShapePropertiesForm(shape);
-                frmProperties.ShowDialog();
-                LoadShapeProperties(shape);
+                EditShapePropertiesForm frmEditShapePropertiesForm = new EditShapePropertiesForm(shape);
+                if (frmEditShapePropertiesForm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadShapeProperties(shape);
+                }
             }
         }
 
@@ -713,5 +702,25 @@ namespace Draw
         }
 
         #endregion
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (dialogProcessor.IsChanged)
+            {
+                DialogResult result = MessageBox.Show("Do you want to save the changes?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (result == DialogResult.Yes)
+                {
+                    Save();
+                    if (dialogProcessor.IsChanged)
+                    {
+                        e.Cancel = true;
+                    }
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
     }
 }

@@ -10,6 +10,12 @@ namespace Draw
     [Serializable]
     public class ShapeMatrix
     {
+        #region Members
+
+        private float[] matrixArray;
+
+        #endregion
+        
         #region Constructors
 
         public ShapeMatrix()
@@ -22,12 +28,6 @@ namespace Draw
             matrixArray[4] = 0;
             matrixArray[5] = 0;
         }
-
-        #endregion
-
-        #region Properties
-        
-        private float[] matrixArray;
 
         #endregion
 
@@ -68,21 +68,21 @@ namespace Draw
             GetElements(transformMatrix);
         }
 
-        public PointF InverseTransformPoint(PointF point)
+        public void InverseTransformPoint(ref PointF point)
         {
             Matrix transformMatrix = GetMatrix();
             transformMatrix.Invert();
             PointF[] transformPoints = { point };
             transformMatrix.TransformPoints(transformPoints);
-            return transformPoints[0];
+            point = transformPoints[0];
         }
 
-        public PointF TransformPoint(PointF point)
+        public void TransformPoint(ref PointF point)
         {
             Matrix transformMatrix = GetMatrix();
             PointF[] transformPoints = { point };
             transformMatrix.TransformPoints(transformPoints);
-            return transformPoints[0];
+            point = transformPoints[0];
         }
 
         public void TransformPoints(PointF[] points)
@@ -96,6 +96,15 @@ namespace Draw
             Matrix m = groupMatrix.GetMatrix();
             m.Multiply(GetMatrix());
             GetElements(m);
+        }
+
+        public bool IsRotated()
+        {
+            if (matrixArray[1] != 0)
+            {
+                return true;
+            }
+            return false;
         }
 
         #endregion

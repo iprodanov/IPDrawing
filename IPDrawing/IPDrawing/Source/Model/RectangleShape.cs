@@ -10,7 +10,7 @@ namespace Draw
 		
 		public RectangleShape(RectangleF rect)
             : base(rect)
-		{
+        {
             this.FillColor = Color.FromArgb(0, 153, 255);
         }
 		
@@ -24,7 +24,7 @@ namespace Draw
 
         public override bool Contains(PointF point)
 		{
-            point = TransformMatrix.InverseTransformPoint(point);
+            TransformMatrix.InverseTransformPoint(ref point);
             if (base.Contains(point))
             {
                 return true;
