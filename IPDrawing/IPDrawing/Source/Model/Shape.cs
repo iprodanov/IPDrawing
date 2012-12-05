@@ -149,8 +149,8 @@ namespace Draw
         }
 
         public virtual PointF[] GetCoveringRectanglePoints()
-        { 
-		    PointF[] points =
+        {
+            PointF[] points =
             {
                 new PointF (this.Rectangle.X, this.Rectangle.Y),
                 new PointF (this.Rectangle.X + this.Width, this.Rectangle.Y),
@@ -172,8 +172,8 @@ namespace Draw
             rect.Inflate(LineWidth / 2, LineWidth / 2);
             return rect.Contains(point);
         }
-		
-	    public abstract void DrawSelf(Graphics grfx);
+        
+        public abstract void DrawSelf(Graphics grfx);
 
         #endregion
     }
