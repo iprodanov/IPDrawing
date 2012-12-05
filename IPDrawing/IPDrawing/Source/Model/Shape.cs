@@ -142,40 +142,38 @@ namespace Draw
 
         public virtual PointF GetCenter()
         {
-            	float ofsetX = this.Width / 2;
-            	float ofsetY = this.Height / 2;
-            	PointF center = new PointF(this.Location.X + ofsetX, this.Location.Y + ofsetY);
-            
-            	return center;
+            float ofsetX = this.Width / 2;
+            float ofsetY = this.Height / 2;
+            PointF center = new PointF(this.Location.X + ofsetX, this.Location.Y + ofsetY);
+            return center;
         }
 
         public virtual PointF[] GetCoveringRectanglePoints()
         { 
-		PointF[] points = 
-                	{
-	                    	new PointF (this.Rectangle.X, this.Rectangle.Y),
-        	            	new PointF (this.Rectangle.X + this.Width, this.Rectangle.Y),
-                	    	new PointF (this.Rectangle.X, this.Rectangle.Y + this.Height),
-                    		new PointF (this.Rectangle.X + this.Width, this.Rectangle.Y + this.Height)
-                	};
-            	this.TransformMatrix.TransformPoints(points);
-            
-            	return points;
+		    PointF[] points =
+            {
+                new PointF (this.Rectangle.X, this.Rectangle.Y),
+                new PointF (this.Rectangle.X + this.Width, this.Rectangle.Y),
+                new PointF (this.Rectangle.X, this.Rectangle.Y + this.Height),
+                new PointF (this.Rectangle.X + this.Width, this.Rectangle.Y + this.Height)
+            };
+            this.TransformMatrix.TransformPoints(points);
+            return points;
         }
 
         public bool IsGroup()
         {
-            	return (this.GetType().ToString() == "Draw.GroupShape");
+            return (this.GetType().ToString() == "Draw.GroupShape");
         }
 
         public virtual bool Contains(PointF point)
-	{
-		RectangleF rect = Rectangle;
-            	rect.Inflate(LineWidth / 2, LineWidth / 2);
-            	return rect.Contains(point);
-	}
+        {
+            RectangleF rect = Rectangle;
+            rect.Inflate(LineWidth / 2, LineWidth / 2);
+            return rect.Contains(point);
+        }
 		
-	public abstract void DrawSelf(Graphics grfx);
+	    public abstract void DrawSelf(Graphics grfx);
 
         #endregion
     }
