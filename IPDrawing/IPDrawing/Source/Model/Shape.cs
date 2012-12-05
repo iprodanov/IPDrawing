@@ -24,47 +24,46 @@ namespace Draw
         public Shape()
         {
         }
-		
-	    public Shape(RectangleF rect)
-	    {
-		    this.LineColor = Color.Black;
-		    this.FillColor = Color.White;
-		    this.LineWidth = 2;
-		    this.Transparency = 255;
-		    this.Rectangle = rect;
-		    this.TransformMatrix = new ShapeMatrix();
-	    }
-
-	    public Shape(Shape shape)
-	    {
-		    this.Height = shape.Height;
-		    this.Width = shape.Width;
-		    this.Location = shape.Location;
-		    this.Rectangle = shape.rectangle;
-			
-		    this.FillColor =  shape.FillColor;
-		    this.LineColor = shape.LineColor;
-		    this.LineWidth = shape.LineWidth;
-		    this.TransformMatrix = shape.TransformMatrix;
-	    }
+        
+        public Shape(RectangleF rect)
+        {
+            this.LineColor = Color.Black;
+            this.FillColor = Color.White;
+            this.LineWidth = 2;
+            this.Transparency = 255;
+            this.Rectangle = rect;
+            this.TransformMatrix = new ShapeMatrix();
+        }
+        
+        public Shape(Shape shape)
+        {
+            this.Height = shape.Height;
+            this.Width = shape.Width;
+            this.Location = shape.Location;
+            this.Rectangle = shape.rectangle;
+            this.FillColor =  shape.FillColor;
+            this.LineColor = shape.LineColor;
+            this.LineWidth = shape.LineWidth;
+            this.TransformMatrix = shape.TransformMatrix;
+        }
 		
         #endregion
-		
-	    #region Properties
+        
+        #region Properties
         
         public int ID
         {
             get { return id; }
             set { id = value; }
         }
-		
-	    public virtual RectangleF Rectangle
+        
+        public virtual RectangleF Rectangle
         {
             get { return rectangle; }
             set { rectangle = value; }
         }
-		
-	    public virtual float Width
+        
+        public virtual float Width
         {
             get { return Rectangle.Width; }
             set
@@ -75,8 +74,8 @@ namespace Draw
                 }
             }
         }
-		
-	    public virtual float Height
+        
+        public virtual float Height
         {
             get { return Rectangle.Height; }
             set
