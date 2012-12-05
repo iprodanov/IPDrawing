@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 namespace Draw
 {
     [Serializable]
-	public abstract class Shape
+    public abstract class Shape
     {
         #region Members
 
