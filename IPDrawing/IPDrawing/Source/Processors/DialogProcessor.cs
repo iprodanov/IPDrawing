@@ -5,111 +5,73 @@ using System.Collections.Generic;
 
 namespace Draw
 {
-	public class DialogProcessor : DisplayProcessor
-	{
-		#region Constructor
-		
-		public DialogProcessor()
-		{
-            selection = new List<Shape>();
-		}
-		
-		#endregion
-		
-		#region Properties
-		
-        private List<Shape> selection;
-		public List<Shape> Selection
-        {
-			get
-            {
-                return selection;
-            }
-            set
-            {
-                selection = value;
-            }
-		}
-		
-		private bool isDragging;
-		public bool IsDragging
-        {
-			get
-            {
-                return isDragging;
-            }
-            set
-            {
-                isDragging = value;
-            }
-		}
+    public class DialogProcessor : DisplayProcessor
+    {
+        #region Members
 
+        private List<Shape> selection;
+        private bool isDragging;
         private bool isDrawing;
+        private bool isSelecting;
+        private bool isChanged;
+        private PointF startPoint;
+        private PointF endPoint;
+
+        #endregion
+
+        #region Constructor
+
+        public DialogProcessor()
+        {
+            selection = new List<Shape>();
+        }
+        
+        #endregion
+        
+        #region Properties
+        
+        public List<Shape> Selection
+        {
+            get { return selection; }
+            set { selection = value; }
+        }
+        
+        public bool IsDragging
+        {
+            get { return isDragging; }
+            set { isDragging = value; }
+        }
+        
         public bool IsDrawing
         {
-            get
-            {
-                return isDrawing;
-            }
-            set
-            {
-                isDrawing = value;
-            }
+            get { return isDrawing; }
+            set { isDrawing = value; }
         }
 
-        private bool isSelecting;
         public bool IsSelecting
         {
-            get
-            {
-                return isSelecting;
-            }
-
-            set
-            {
-                isSelecting = value;
-            }
+            get { return isSelecting; }
+            set { isSelecting = value; }
         }
-
-        private bool isChanged;
+        
         public bool IsChanged
         {
-            get
-            {
-                return isChanged;
-            }
-            set
-            {
-                isChanged = value;
-            }
+            get { return isChanged; }
+            set { isChanged = value; }
         }
-
-		private PointF startPoint;
-		public PointF StartPoint
+        
+        public PointF StartPoint
         {
-			get
-            {
-                return startPoint;
-            }
-            set
-            {
-                startPoint = value;
-            }
-		}
-
-        private PointF endPoint;
+            get { return startPoint; }
+            set { startPoint = value; }
+        }
+        
         public PointF EndPoint
         {
-            get
-            {
-                return endPoint;
-            }
-            set
-            {
-                endPoint = value;
-            }
+            get { return endPoint; }
+            set { endPoint = value; }
         }
-
+        
         #endregion
 
         #region Methods
