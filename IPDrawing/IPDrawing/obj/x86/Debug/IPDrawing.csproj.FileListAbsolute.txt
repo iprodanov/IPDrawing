@@ -1,0 +1,13 @@
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\bin\Debug\IPDrawing.exe
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\bin\Debug\IPDrawing.pdb
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\IPDrawing.Properties.Resources.resources
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\Draw.AboutForm.resources
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\Draw.DoubleBufferedPanel.resources
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\Draw.FineRotationForm.resources
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\Draw.MainForm.resources
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\Draw.ShapePropertiesForm.resources
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\IPDrawing.exe
+C:\Users\Vanio\Desktop\IPDrawing\IPDrawing\obj\x86\Debug\IPDrawing.pdb
