@@ -19,13 +19,13 @@ namespace Draw
         #region Constructors
 
         public MainForm()
-		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
-			InitializeComponent();
+        {
+            //
+            // The InitializeComponent() call is required for Windows Forms designer support.
+            //
+            InitializeComponent();
             dialogProcessor = new DialogProcessor();
-		}
+        }
 
         #endregion
 
@@ -37,10 +37,9 @@ namespace Draw
         }
 
         private void ViewPort_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-		{
+        {
             dialogProcessor.StartPoint = e.Location;
             Shape shape = dialogProcessor.ContainsPoint(e.Location);
-                
             if (shape != null)
             {
                 ClickOnShape(shape);
@@ -48,47 +47,42 @@ namespace Draw
             }
             else
             {
-                ClickOnWorkspace();                    
+                ClickOnWorkspace();
             }
-
             viewPort.Invalidate();
-		}
+        }
 
         private void ViewPort_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Shape shape = dialogProcessor.ContainsPoint(e.Location);
             EditShapeProperties(shape);
         }
-
-		private void ViewPort_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
-		{
+        
+        private void ViewPort_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
             dialogProcessor.EndPoint = e.Location;
-            
             if (IsDragging())
             {
                 DraggingShape();
                 SetXY();
-			}
+            }
             else if (IsDrawing())
             {
                 DrawingShape();
             }
-            
             viewPort.Invalidate();
-		}
-
-		private void ViewPort_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
-		{   
+        }
+        
+        private void ViewPort_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
             if(dialogProcessor.TempShape != null)
             {
                 dialogProcessor.AddTempShapeToShapes();
             }
-
             ResetFlags();
-
             viewPort.Invalidate();
-		}
-
+        }
+        
         private void ViewPort_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
