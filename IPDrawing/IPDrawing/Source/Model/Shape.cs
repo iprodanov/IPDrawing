@@ -60,83 +60,83 @@ namespace Draw
 		
 	    public virtual RectangleF Rectangle
         {
-		    get { return rectangle; }
-		    set { rectangle = value; }
-	    }
+            get { return rectangle; }
+            set { rectangle = value; }
+        }
 		
 	    public virtual float Width
         {
-		    get { return Rectangle.Width; }
-		    set 
-		    {
-                	if (value > 0)
-			        {
-                        rectangle.Width = value;
-                	}
+            get { return Rectangle.Width; }
+            set
+            {
+                if (value > 0)
+                {
+                    rectangle.Width = value;
+                }
             }
-	    }
+        }
 		
 	    public virtual float Height
         {
-		    get { return Rectangle.Height; }
-		    set
+            get { return Rectangle.Height; }
+            set
             {
                 if (value > 0)
                 {
                     rectangle.Height = value;
                 }
             }
-	    }
+        }
 		
-	    public virtual PointF Location
+        public virtual PointF Location
         {
-		    get { return Rectangle.Location; }
-		    set { rectangle.Location = value; }
-	    }
+            get { return Rectangle.Location; }
+            set { rectangle.Location = value; }
+        }
 		
 	    public virtual Color FillColor
         {
-		    get { return fillColor; }
-		    set { fillColor = value; }
-	    }
+            get { return fillColor; }
+            set { fillColor = value; }
+        }
 
         public virtual Color LineColor
         {
-		    get { return lineColor; }
-		    set { lineColor = value; }
+            get { return lineColor; }
+            set { lineColor = value; }
         }
 
         public virtual int LineWidth
         {
-		    get { return lineWidth; }
-		    set 
-		    {
-			    if (value > 0)
-			    {
-				    lineWidth = value;
-			    }
-		    }
+            get { return lineWidth; }
+		    set
+            {
+                if (value > 0)
+                {
+                    lineWidth = value;
+                }
+            }
         }
 
         public virtual int Transparency
         {
-        	get { return transparency; }
-		    set
-		    {
-			    if (value >= 0 && value <= 255)
-			    {
-				    transparency = value;
-			    }
-		    }
+            get { return transparency; }
+            set
+            {
+                if (value >= 0 && value <= 255)
+                {
+                    transparency = value;
+                }
+            }
         }
 
         public virtual ShapeMatrix TransformMatrix
         {
-		    get { return transformMatrix; }
+            get { return transformMatrix; }
 	        set { transformMatrix = value; }
         }
-
-	    #endregion
+        
+        #endregion
 
         #region Methods
 
