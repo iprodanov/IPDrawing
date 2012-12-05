@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace Draw
 {
-	[Serializable]
+    [Serializable]
     public class RectangleShape : Shape
     {
         #region Constructors
